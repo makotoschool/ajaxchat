@@ -1,0 +1,20 @@
+
+.container{
+  width:60%;
+  height:60vh;
+  background-color: #ccc;
+  margin:10px auto 0 auto;
+  
+}
+
+.form_container{
+  width:40%;
+  position: fixed;
+  bottom:10px;
+  left:30%;
+  border:2px solid #000;
+  border-radius:20px;
+  padding:20px;
+  
+  
+}
