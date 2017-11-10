@@ -39,6 +39,27 @@ function check(){
   
 }  
     
+//ロードしたときにajaxで一覧を取得を関数化
+alltalk();
+function alltalk(){
+$.ajax({
+  type:'POST',
+  url:'./lib/select.php'
+}).done(function(data){
+  console.log(data);
+  $('#talk').html('');
+  for(var i in data){
+    $('#talk').append('<dt>'+data[i].name+'</dt><dd>'+data[i].comment+'</dd>');
+    
+    
+  }
+  
+}).fail(function(){
+  alert('failed');
+});
+};
+
+
 //投稿ボタンクリックでajax通信
 $('#submit').on('click',function(){
   $.ajax({
@@ -51,7 +72,10 @@ $('#submit').on('click',function(){
     
   }).done(function(data){
     console.log(data);
+   
     
+  }).done(function(){
+    alltalk();
   }).fail(function(){
     alert('failed');
     
