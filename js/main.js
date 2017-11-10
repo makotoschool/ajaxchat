@@ -39,9 +39,31 @@ function check(){
   
 }  
     
+//投稿ボタンクリックでajax通信
+$('#submit').on('click',function(){
+  $.ajax({
+    type:'POST',
+    url:'./lib/insert.php',
+    data:{name:$('#name').val(),
+          comment:$('#comment').val()  
+    }
+    
+    
+  }).done(function(data){
+    console.log(data);
+    
+  }).fail(function(){
+    alert('failed');
+    
+  });
+  
+  
+  return false;
+});
+
 
   
   
   
   
-});
+});//end jQuery

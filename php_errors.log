@@ -1,0 +1,6 @@
+[10-Nov-2017 05:53:46 UTC] PHP Fatal error:  Call to undefined method PDO::execute() in /home/ubuntu/workspace/chat/lib/ajax.php on line 12
+[10-Nov-2017 05:53:46 UTC] PHP Stack trace:
+[10-Nov-2017 05:53:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/chat/lib/ajax.php:0
+[10-Nov-2017 05:57:44 UTC] PHP Fatal error:  Call to undefined method PDO::execute() in /home/ubuntu/workspace/chat/lib/ajax.php on line 12
+[10-Nov-2017 05:57:44 UTC] PHP Stack trace:
+[10-Nov-2017 05:57:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/chat/lib/ajax.php:0

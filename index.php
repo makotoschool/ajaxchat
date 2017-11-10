@@ -1,5 +1,6 @@
 <?php
 require_once('./lib/init.php');
+require_once('./lib/init_request.php');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -14,7 +15,13 @@ require_once('./lib/init.php');
   <script type="text/javascript" src="./js/main.js"></script>
 </head>
 <body>
-  <div class="container">
+  <div class="comment_container">
+    <dl>
+      <?php foreach($result as $row):?>
+        <dt><?php echo $row['name'] ?></dt>
+        <dt><?php echo $row['comment'] ?></dt>
+      <?php endforeach;?>
+    </dl>
     
     
   </div>
