@@ -4,6 +4,7 @@
   height:60vh;
   background-color: #ccc;
   margin:10px auto 0 auto;
+  overflow-y: scroll;
   
 }
 

@@ -11,6 +11,7 @@ try{
   $condb=new PDO(DBH,USERNAME,PASSWORD); 
 
 }catch(PDOException $e){
+  //接続うまくいかなかったらエラーを出す
   echo $e->getMessage();
   
 }

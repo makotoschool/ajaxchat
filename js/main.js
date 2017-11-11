@@ -38,30 +38,43 @@ function check(){
      }
   
 }  
+//bordwrap 常に一番下までスクロール
+scrollBottom();
+function scrollBottom(){
+ $('#bordwrap').animate({
+                scrollTop:$('#bordwrap').height()  
+              },500);
+
+}   
+//５秒おきにajax通信で一覧取得
+var talkbord=$('#talkbord');
+allSelect();
+
+
+setInterval(allSelect,1000);
+
+function allSelect(){
+  $.ajax({
+    type:'POST',
+    url:'./lib/select.php'
+  }).done(function(data){
+    talkbord.html('');
     
-//ロードしたときにajaxで一覧を取得を関数化
-alltalk();
-function alltalk(){
-$.ajax({
-  type:'POST',
-  url:'./lib/select.php'
-}).done(function(data){
-  console.log(data);
-  $('#talk').html('');
-  for(var i in data){
-    $('#talk').append('<dt>'+data[i].name+'</dt><dd>'+data[i].comment+'</dd>');
-    
-    
-  }
+    for(i in data){
+      talkbord.append('<dt>'+data[i].name+'</dt><dd>'+data[i].comment+'</dd>');
+    }
+ }).done(function(){
+   scrollBottom();
+ }).fail(function(){
+    alert('fail');
+  });
   
-}).fail(function(){
-  alert('failed');
-});
-};
+}
 
 
 //投稿ボタンクリックでajax通信
 $('#submit').on('click',function(){
+
   $.ajax({
     type:'POST',
     url:'./lib/insert.php',
@@ -74,15 +87,13 @@ $('#submit').on('click',function(){
     console.log(data);
    
     
-  }).done(function(){
-    alltalk();
   }).fail(function(){
     alert('failed');
     
   });
+     return false;
   
-  
-  return false;
+ 
 });
 
 
