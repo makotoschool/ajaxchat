@@ -14,7 +14,7 @@ require_once('./lib/init.php');
   <script type="text/javascript" src="./js/main.js"></script>
 </head>
 <body>
-  <div class="comment_container">
+  <div id="bordwrap" class="comment_container">
     <dl id="talkbord">
      
     </dl>

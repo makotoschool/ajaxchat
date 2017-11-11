@@ -42,7 +42,7 @@ function check(){
 scrollBottom();
 function scrollBottom(){
  $('#bordwrap').animate({
-                scrollTop:$('#bordwrap').height()  
+                scrollTop:$('#talkbord').height()  
               },500);
 
 }   
@@ -63,8 +63,7 @@ function allSelect(){
     for(i in data){
       talkbord.append('<dt>'+data[i].name+'</dt><dd>'+data[i].comment+'</dd>');
     }
- }).done(function(){
-   scrollBottom();
+     scrollBottom();
  }).fail(function(){
     alert('fail');
   });
