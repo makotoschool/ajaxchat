@@ -1,13 +1,28 @@
+.clearfix:fter{
+  content:'';
+  display:block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  
+}
+.coment_container_wrap{
+  width:48%;
+  overflow-y: hidden;
+    margin:10px auto 0 auto;
+
+}
 
 .comment_container{
-  width:60%;
+  width:50%;
   height:60vh;
-  background-color: #ccc;
   margin:10px auto 0 auto;
   overflow-y: scroll;
   padding-bottom:200px;
-  
+  font-size:1.5em;
 }
+
+
 
 .form_container{
   width:40%;
@@ -19,4 +34,17 @@
   padding:20px;
   
   
+}
+#talkbord dt,
+#talkbord dd
+{
+  float: left;
+}
+#talkbord dt{
+  margin-right: 20px;  
+}
+
+#talkbord dt:not(:first-of-type){
+  clear:both;
+
 }

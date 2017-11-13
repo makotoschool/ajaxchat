@@ -15,11 +15,9 @@ require_once('./lib/init.php');
 </head>
 <body>
   <div id="bordwrap" class="comment_container">
-    <dl id="talkbord">
+    <dl id="talkbord" class="clearfix">
      
     </dl>
-    
-    
   </div>
   <div class="form_container">
       <form>
@@ -33,7 +31,7 @@ require_once('./lib/init.php');
       <textarea id="comment" name="comment" class="form-control"></textarea>
       <p id="comment_msg" class="text-danger">入力必須項目です</p>
     </div> 
-    <input id="submit" type="submit" value="投稿" class="btn btn-primary" disabled>
+    <button id="submit"  class="btn btn-primary" disabled>投稿</button>
     
     
   </form>

@@ -3,7 +3,7 @@ $(function(){
   var check1=false;
   var check2=false;
 //名前文字入力きっかけの世界
-$('#name').on('change focus blur keypress',function(){
+$('#name').on('change focus blur keypress keyup',function(){
   var valcheck=$(this).val();//入力された文字を箱に入れる
   if(valcheck!=''){//もし文字箱が空じゃなければ
     $('#name_msg').hide();//メッセージ隠す
@@ -16,7 +16,7 @@ $('#name').on('change focus blur keypress',function(){
 });
   
   //comment文字入力きっかけの世界
-$('#comment').on('change focus keypress',function(){
+$('#comment').on('change focus blur keypress keyup',function(){
   var valcheck=$(this).val();//入力された文字を箱に入れる
   if(valcheck!=''){//もし文字箱が空じゃなければ
     $('#comment_msg').hide();//メッセージ隠す
@@ -43,7 +43,7 @@ scrollBottom();
 function scrollBottom(){
  $('#bordwrap').animate({
                 scrollTop:$('#talkbord').height()  
-              },500);
+              },10);
 
 }   
 //５秒おきにajax通信で一覧取得
@@ -51,7 +51,7 @@ var talkbord=$('#talkbord');
 allSelect();
 
 
-setInterval(allSelect,1000);
+setInterval(allSelect,2000);
 
 function allSelect(){
   $.ajax({
@@ -63,9 +63,9 @@ function allSelect(){
     for(i in data){
       talkbord.append('<dt>'+data[i].name+'</dt><dd>'+data[i].comment+'</dd>');
     }
-     scrollBottom();
+    scrollBottom();
  }).fail(function(){
-    alert('fail');
+    console.log('通信できませんでした');
   });
   
 }
@@ -83,14 +83,14 @@ $('#submit').on('click',function(){
     
     
   }).done(function(data){
-    console.log(data);
-   
+    $('#name,#comment').val('');
+    $('#submit').attr('disable',true);
+    scrollBottom();
     
   }).fail(function(){
-    alert('failed');
-    
+   console.log('通信できませんでした');
   });
-     return false;
+
   
  
 });
